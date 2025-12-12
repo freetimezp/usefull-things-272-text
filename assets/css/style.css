@@ -15,7 +15,26 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: #fcff8a;
+}
+
+body {
+    background: radial-gradient(circle at 30% 30%, #1a1a1a, #000000);
+    animation: bgMove 12s ease-in-out infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 30% 30%;
+        filter: brightness(1);
+    }
+    50% {
+        background-position: 70% 70%;
+        filter: brightness(1.08);
+    }
+    100% {
+        background-position: 30% 30%;
+        filter: brightness(1);
+    }
 }
 
 ul {
@@ -31,16 +50,18 @@ ul li {
     font-size: 12em;
     color: transparent;
     font-weight: 700;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.05));
 }
 
 ul li::after,
 ul li::before {
     content: attr(data-title);
     position: absolute;
-    color: #262626;
+    color: #b5b3b3;
     top: 0;
     left: 0;
     overflow: hidden;
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.7), 0 0 25px rgba(255, 0, 150, 0.5), 0 0 50px rgba(255, 0, 150, 0.3);
 }
 
 ul li:nth-child(odd)::before {
@@ -112,5 +133,73 @@ ul li:nth-child(odd) {
     }
     100% {
         transform: rotate(-15deg);
+    }
+}
+
+ul li:nth-child(1)::before,
+ul li:nth-child(1)::after {
+    text-shadow: 0 0 25px #ff00c8;
+}
+
+ul li:nth-child(2)::before,
+ul li:nth-child(2)::after {
+    text-shadow: 0 0 25px #00eaff;
+}
+
+ul li:nth-child(3)::before,
+ul li:nth-child(3)::after {
+    text-shadow: 0 0 25px #00ff6a;
+}
+
+ul li:nth-child(4)::before,
+ul li:nth-child(4)::after {
+    text-shadow: 0 0 25px #ff2200;
+}
+
+ul li:nth-child(5)::before,
+ul li:nth-child(5)::after {
+    text-shadow: 0 0 25px #dee916;
+}
+
+ul li:nth-child(6)::before,
+ul li:nth-child(6)::after {
+    text-shadow: 0 0 25px #e1a4ef;
+}
+
+ul li:nth-child(7)::before,
+ul li:nth-child(7)::after {
+    text-shadow: 0 0 25px #110aed;
+}
+
+ul li:nth-child(8)::before,
+ul li:nth-child(8)::after {
+    text-shadow: 0 0 25px #19bfdc;
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particles span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ebdc0e;
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) scale(0.2);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) scale(6);
+        opacity: 0;
     }
 }
